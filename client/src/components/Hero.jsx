@@ -36,10 +36,7 @@ const Hero = () => {
         >
           Start creating now
         </button>
-        <button
-          onClick={handleStart}
-          className="border border-gray-300 bg-white text-black px-10 py-3 rounded-lg hover:-translate-y-1 transition-transform cursor-pointer"
-        >
+        <button className="border border-gray-300 bg-white text-black px-10 py-3 rounded-lg hover:-translate-y-1 transition-transform cursor-pointer">
           Watch demo
         </button>
       </div>

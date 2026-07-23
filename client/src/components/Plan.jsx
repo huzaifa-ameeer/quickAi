@@ -3,7 +3,7 @@ import React from "react";
 
 const Plan = () => {
   return (
-    <div className="max-w-2xl mx-auto z-20 my-20">
+    <div className="max-w-2xl z-50 mx-auto z-50 my-20 pt-24">
       <div className="text-center">
         <h2 className="text-slate-700 text-[42px] font-semibold">
           Choose Your Plan
@@ -14,8 +14,8 @@ const Plan = () => {
         </p>
       </div>
 
-      <div className="mt-14 max-sm:mx-8">
-        <PricingTable />
+       <div className="max-w-2xl z-50 mx-auto my-20 pt-24">
+        <PricingTable className="z-50"/>
       </div>
     </div>
   );
