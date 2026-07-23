@@ -1,10 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser, useClerk } from "@clerk/react";
 import { assets } from "../assets/assets";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const { isSignedIn } = useUser();
+  const { openSignIn } = useClerk();
 
-    const navigate = useNavigate()
+  const handleStart = () => {
+    if (isSignedIn) {
+      navigate("/ai");
+    } else {
+      openSignIn();
+    }
+  };
 
   return (
     <div className="px-4 sm:px-20 xl:px-32 relative inline-flex flex-col w-full justify-center bg-[url(/gradientBackground.png)] bg-cover bg-no-repeat min-h-screen">
@@ -20,15 +30,22 @@ const Hero = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 text:sm max-sm:text-xs">
-        <button onClick={()=>navigate("/ai")} className="bg-primary text-white px-10 py-3 rounded-lg hover:-translate-y-1 transition-transform  cursor-pointer">
+        <button
+          onClick={handleStart}
+          className="bg-primary text-white px-10 py-3 rounded-lg hover:-translate-y-1 transition-transform cursor-pointer"
+        >
           Start creating now
         </button>
-        <button className="border border-gray-300 bg-white text-black px-10 py-3 rounded-lg hover:-translate-y-1 transition-transform  cursor-pointer">
+        <button
+          onClick={handleStart}
+          className="border border-gray-300 bg-white text-black px-10 py-3 rounded-lg hover:-translate-y-1 transition-transform cursor-pointer"
+        >
           Watch demo
         </button>
       </div>
       <div className="flex items-center gap-4 mt-8 mx-auto text-gray-600">
-        <img className="h-8 cursor-default" src={assets.user_group} alt="" /> Trusted by 10k+ people
+        <img className="h-8 cursor-default" src={assets.user_group} alt="" />{" "}
+        Trusted by 10k+ people
       </div>
     </div>
   );

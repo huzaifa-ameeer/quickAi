@@ -9,8 +9,8 @@ const Home = () => {
     <>
       <Navbar />
       <Hero />
-      <AiTools/>
-      <Testimonial/>
+      <AiTools />
+      <Testimonial />
     </>
   );
 };
